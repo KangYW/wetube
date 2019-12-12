@@ -1,11 +1,11 @@
 import expess from "express";
 import routes from "../routes";
+import { userDetail, users, editProfile, changePassword } from "../controllers/userController";
 
 const userRouter = expess.Router();
 
-userRouter.get(routes.users, (req,res) => res.send('User index'));
-userRouter.get(routes.userDetail, (req,res) => res.send('User userDetail'));
-userRouter.get(routes.userProfile, (req,res) => res.send('User userProfile'));
-userRouter.get(routes.changePassword, (req,res) => res.send('User changePassword'));
+userRouter.get(routes.userProfile, editProfile);
+userRouter.get(routes.changePassword, changePassword);
+userRouter.get(routes.userDetail, userDetail);
 
 export default userRouter;

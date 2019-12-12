@@ -9,7 +9,7 @@ const SEARCH = "/search";
 const USERS = "/users";
 const USER_DETAIL = "/:id";
 const USER_PROFILE = "/edit-profile";
-const CHANGE_PASSWORD = "/chang-password";
+const CHANGE_PASSWORD = "/change-password";
 
 //Video (:id는 ES6가 id값이 바뀐다는걸 알게 해줌.)
 const VIDEOS = "/videos";

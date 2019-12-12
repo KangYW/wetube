@@ -10,6 +10,7 @@ import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
 import routes from "./routes";
+import { localsMiddleware } from "./middleware";
 const app = express();
 
 // //서버생성
@@ -24,16 +25,19 @@ const app = express();
 // const handleHome =  (req, res) =>  res.send("Hello My Home");
 // const handleProfile = (req, res) => res.send("You are on my profile");
 
-
+app.use(helmet());
+app.set('view engine', "pug");
 
 //midleware > route
 //유저로 부터 받은 cookie를 이해하는곳
 app.use(cookieParser());
-//유저로 부터 받은 데이터를 이해하는곳
+//유저로 부터 받은 데이터(정보)를 이해하는곳
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
-app.use(helmet());
 app.use(morgan("combined"));
+
+
+app.use(localsMiddleware);
 
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
@@ -44,6 +48,6 @@ app.use(routes.videos, videoRouter);
 // app.get("/profile", handleProfile);
 // app.listen(PORT, handleListening);
 
-//export 값을 지정 해주면 app 이라는 이름을 사용할수있음
+// export 값을 지정 해주면 app 이라는 이름을 사용할수있음
 export default app;
 
