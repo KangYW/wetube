@@ -6,6 +6,6 @@ const userRouter = expess.Router();
 
 userRouter.get(routes.userProfile, editProfile);
 userRouter.get(routes.changePassword, changePassword);
-userRouter.get(routes.userDetail, userDetail);
+userRouter.get(routes.userDetail(), userDetail);
 
 export default userRouter;
