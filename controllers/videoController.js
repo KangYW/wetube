@@ -12,13 +12,22 @@ export const home = async (req, res) => {
   }
 };
 
-export const search = (req, res) => {
+export const search = async (req, res) => {
   // ES6 방식 const searchingBy = req.query.term;
+  // ES6 searchingBy : searchingBy 이런식으로 표시
   const {
     query: { term: searchingBy }
   } = req;
-  // ES6 searchingBy : searchingBy 이런식으로 표시
-  res.render("search", { pageTitle: "Search", searchingBy });
+  let videos = [];
+  try {
+    //option의 'i' 는 insensitive(덜민감) 를 의미함.
+    videos = await Video.find({
+      title: { $regex: searchingBy, $options: "i" }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  res.render("search", { pageTitle: "Search", searchingBy, videos });
 };
 // export const videos = (req,res) => res.render("videos", {pageTitle : "Videos"});
 
