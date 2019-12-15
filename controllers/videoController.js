@@ -12,6 +12,8 @@ export const home = async (req, res) => {
   }
 };
 
+// search
+
 export const search = async (req, res) => {
   // ES6 방식 const searchingBy = req.query.term;
   // ES6 searchingBy : searchingBy 이런식으로 표시
