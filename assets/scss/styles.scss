@@ -1,3 +1,12 @@
-body {
-  background-color: green;
-}
+@import "config/_variables.scss";
+@import "config/reset.scss";
+@import "main.scss";
+
+@import "particals/header.scss";
+@import "particals/footer.scss";
+@import "particals/form.scss";
+@import "particals/socialLogin.scss";
+@import "particals/videoBlock.scss";
+
+@import "pages/home.scss";
+@import "pages/videoDetail.scss";

@@ -111,3 +111,4 @@ uploads
 uploads\videos
 db.js
 package-lock.json
+static
